@@ -39,14 +39,18 @@ terraform {
 }
 ```
 
-### 2️⃣ **Generate SSH Key Pair**
+### 2️⃣ **Clone the Code and Generate SSH Key Pair**
+clone the repository to be able to modify it.
+```bash
+git clone https://github.com/ahmedbouzid07/2-Tier-achitecture-Aws-Terraform.git
+```
 Generate a public-private key pair for your EC2 instances.
 
 ```bash
 cd modules/key/
 ssh-keygen -t rsa -b 4096 -f client_key
 ```
-Update the Terraform configuration file with the generated key name.
+Add the Generated key pair inside **modules/key** and name them **client_key** and **client_key.pub**
 
 ### 3️⃣ **Set Up Input Variables**
 Define variables for the infrastructure in **terraform.tfvars**.
