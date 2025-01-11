@@ -20,8 +20,6 @@ This Terraform project provisions the following resources:
 
 Below is the architecture diagram of the two-tier infrastructure. It illustrates the routing between components and AWS services.
 
-![AWS Architecture Diagram](INSERT_IMAGE_URL_HERE)
-
 ---
 
 ## 🚀 Steps to Deploy the Architecture
@@ -45,17 +43,15 @@ terraform {
 Generate a public-private key pair for your EC2 instances.
 
 ```bash
-Copy code
 cd modules/key/
 ssh-keygen -t rsa -b 4096 -f client_key
-Update the Terraform configuration file with the generated key name.
 ```
+Update the Terraform configuration file with the generated key name.
 
 ### 3️⃣ **Set Up Input Variables**
-Define variables for the infrastructure in terraform.tfvars.
+Define variables for the infrastructure in **terraform.tfvars**.
 
 ```hcl
-Copy code
 region                   = "us-east-1"
 project_name             = "two-tier-architecture"
 vpc_cidr                 = "10.0.0.0/16"
@@ -73,14 +69,12 @@ additional_domain_name   = "www.yourdomain.com"
 Navigate to the project directory and initialize Terraform.
 
 ```bash
-Copy code
 cd root
 terraform init
 ```
 View the execution plan to ensure everything is configured correctly.
 
 ```bash
-Copy code
 terraform plan
 ```
 
@@ -88,6 +82,5 @@ terraform plan
 Finally, deploy the infrastructure using the apply command.
 
 ```bash
-Copy code
 terraform apply --auto-approve
 ```
